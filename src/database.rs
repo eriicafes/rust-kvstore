@@ -41,7 +41,7 @@ impl Database {
         for entry in file_contents.lines() {
             let (key, value) = entry.split_once("\t").expect("db malformed");
 
-            contents.insert(key.to_string(), value.to_string());
+            contents.insert(key.to_owned(), value.to_owned());
         }
 
         // let hash = HashMap::from(
@@ -59,14 +59,14 @@ impl Database {
     // get item by key
     pub fn get(&self, key: &str) -> &String {
         self.contents
-            .get(&key.to_string())
+            .get(&key.to_owned())
             .expect(format!("key '{}' not found", key).as_str())
     }
 
     // set item by key
     // overrides item if key already exists
     pub fn set(&mut self, key: &str, value: &str) {
-        self.contents.insert(key.to_string(), value.to_string());
+        self.contents.insert(key.to_owned(), value.to_owned());
 
         let mut file_contents = String::new();
 
