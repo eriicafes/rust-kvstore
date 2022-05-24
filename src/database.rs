@@ -9,9 +9,7 @@ impl Database {
     pub fn new() -> Database {
         let contents = Database::load();
 
-        Database {
-            contents: contents,
-        }
+        Database { contents }
     }
 
     // commit contents into database file
