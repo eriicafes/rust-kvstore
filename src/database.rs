@@ -36,7 +36,7 @@ impl Database {
 
         println!("loading: {} \n done loading", file_contents);
 
-        let mut contents: HashMap<String, String> = HashMap::new();
+        let mut contents = HashMap::new();
 
         for entry in file_contents.lines() {
             let (key, value) = entry.split_once("\t").expect("db malformed");
